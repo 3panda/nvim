@@ -1,5 +1,10 @@
 # nvim
 neovim settings file
+# Precondition
+Place this repository as follows
+```
+~/.config/vim
+```
 
 # Installation
 
