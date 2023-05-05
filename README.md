@@ -19,20 +19,20 @@ Do this in vim command line mode
 :PackerSync
 ```
 
-### Install packages
+# Install packages
 
-### Package management
+## Package management
 [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
-### Tree viewer
+## Tree viewer
 [fern.vim](https://github.com/lambdalisue/fern.vim)
 
-### LSP
+## LSP
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 * [mason.nvim](https://github.com/williamboman/mason.nvim)
 * [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 
-### Code Completion
+## Code Completion
 * [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 * [vim-vsnip](https://github.com/hrsh7th/vim-vsnip)
