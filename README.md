@@ -1,30 +1,33 @@
 # nvim
 neovim settings file
-# Precondition
-Place this repository as follows
+# Preparations
+The following preparations must be completed in advance.
+
+## Placing the configuration file
+I would place this repository as follows
 ```
 ~/.config/nvim
 ```
+## Installing Neovim
+Install Neovim with reference [here](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-# Installation
-
-## 1.Install packer.nvim
+## Install packer.nvim
 Install packer.nvim with reference [here](https://github.com/wbthomason/packer.nvim#quickstart)
 
-## 2.Install the package 
-Start Neovim and install packages without worrying about errors.
-Do this in vim command line mode
+# Install the package 
+Start Neovim and install the package without worrying about errors.
+All subsequent operations are performed in vim command line mode.
+
 ````
 :PackerInstall
 ````
 
-## 3. Synchronize packages.
-Do this in vim command line mode
+Synchronize packages.
 ```
 :PackerSync
 ```
 
-# Install packages
+# About installed packages
 
 ## Package management
 [packer.nvim](https://github.com/wbthomason/packer.nvim)
