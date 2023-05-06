@@ -3,7 +3,7 @@ neovim settings file
 # Precondition
 Place this repository as follows
 ```
-~/.config/vim
+~/.config/nvim
 ```
 
 # Installation
