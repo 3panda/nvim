@@ -216,3 +216,34 @@ require("conform").setup({
     swift = { "swiftformat" },   -- brew install swiftformat
   },
 })
+
+
+-- --------------------------------------------
+-- --------------------------------------------
+-- custom command
+-- --------------------------------------------
+-- --------------------------------------------
+
+--[[
+コマンド一覧と影響範囲
+
+| コマンド | 影響範囲         | 使用シーンの例                                      |
+|----------|------------------|-----------------------------------------------------|
+| cd       | グローバル        | 全体の作業ディレクトリを変えたいとき               |
+| lcd      | ウィンドウごと    | 複数プロジェクトを同時に扱うとき、片方だけ変更したい場合 |
+| tcd      | タブごと          | タブ単位で独立した作業スペースを持ちたい場合       |
+]]
+local function change_dir(mode)
+  local filepath = vim.api.nvim_buf_get_name(0)
+  if filepath == "" then
+    print("ファイルが開かれていません")
+    return
+  end
+  local dir = vim.fn.fnamemodify(filepath, ":p:h")
+  vim.cmd(mode .. " " .. dir)
+  print(mode .. " で " .. dir .. " に移動しました")
+end
+
+vim.api.nvim_create_user_command("CD", function() change_dir("cd") end, {})
+vim.api.nvim_create_user_command("LCD", function() change_dir("lcd") end, {})
+vim.api.nvim_create_user_command("TCD", function() change_dir("tcd") end, {})
