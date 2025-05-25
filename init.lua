@@ -108,18 +108,7 @@ require("mason-lspconfig").setup({
 })
 
 -- 各サーバーに対して共通設定
--- local lspconfig = require('lspconfig')
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-
--- local servers = { "ts_ls", "pyright", "lua_ls" } -- KotlinやSwift以外に使う場合
--- for _, server in ipairs(servers) do
---   lspconfig[server].setup({
---     capabilities = capabilities
---   })
--- end
-
-
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.workspace = {
   configuration = false,
@@ -128,13 +117,20 @@ capabilities.workspace = {
   }
 }
 
-local lspconfig = require('lspconfig')
+-- KotlinやSwift以外に使う場合
+local servers = { "ts_ls", "pyright", "lua_ls" }
+ for _, server in ipairs(servers) do
+   lspconfig[server].setup({
+     capabilities = capabilities
+   })
+ end
+
 
 -- kotlin
 lspconfig.kotlin_language_server.setup({
   cmd = { "kotlin-language-server" },
   filetypes = { "kotlin" },
-  root_dir = function() return vim.fn.getcwd() end,
+  root_dir = lspconfig.util.root_pattern("settings.gradle.kts", "build.gradle.kts", ".git"),
   capabilities = capabilities,
   init_options = vim.empty_dict(),  -- ← [{}] を防ぐ最も確実な手段
   settings = {},                    -- ← Neovim側の空設定を明示
