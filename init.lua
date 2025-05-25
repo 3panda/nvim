@@ -30,8 +30,8 @@ opt.belloff = all
 opt.syntax = on
 -- 大文字小文字無視
 opt.ignorecase = true
---  IMを無効化
-opt.imdisable = true
+--  IMを無効化 TODOエラーになるが不要かもしれないので要調査 2024/08/26
+-- opt.imdisable = true
 --  Yankした情報を他のアプリケーションでも利用
 opt.clipboard = "unnamedplus"
 --  ファイルエンコーディングや文字コードをステータス行に表示
@@ -68,9 +68,9 @@ opt.tabstop = 4
 opt.shiftwidth = 0
 -- 不可視文字を表示
 opt.list = true
-opt.listchars:append("eol:↲")
-opt.listchars:append("space:⋅")
-
+--opt.listchars:append("eol:↲")
+--opt.listchars:append("space:⋅")
+opt.listchars = { tab = '>>', trail = '-', nbsp = '+', eol = "↲"}
 
 -- --------------------------------------------
 -- Search
@@ -103,20 +103,49 @@ opt.guifont = { 'Andale', 'Mono:h14'}
 
 -- 1. LSP Sever management
 require('mason').setup()
-require('mason-lspconfig').setup_handlers({ function(server)
-  local opt = {
-    -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
-    --   local opts = { noremap=true, silent=true }
-    --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
-    -- end,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    )
+require("mason-lspconfig").setup({
+  ensure_installed = {}, -- 必要なLSPサーバーを列挙してもOK
+})
+
+-- 各サーバーに対して共通設定
+-- local lspconfig = require('lspconfig')
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+-- local servers = { "ts_ls", "pyright", "lua_ls" } -- KotlinやSwift以外に使う場合
+-- for _, server in ipairs(servers) do
+--   lspconfig[server].setup({
+--     capabilities = capabilities
+--   })
+-- end
+
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.workspace = {
+  configuration = false,
+  didChangeWatchedFiles = {
+    dynamicRegistration = false
   }
-  require('lspconfig')[server].setup(opt)
-end })
+}
+
+local lspconfig = require('lspconfig')
+
+-- kotlin
+lspconfig.kotlin_language_server.setup({
+  cmd = { "kotlin-language-server" },
+  filetypes = { "kotlin" },
+  root_dir = function() return vim.fn.getcwd() end,
+  capabilities = capabilities,
+  init_options = vim.empty_dict(),  -- ← [{}] を防ぐ最も確実な手段
+  settings = {},                    -- ← Neovim側の空設定を明示
+})
+
+-- Swift
+lspconfig.sourcekit.setup({
+  cmd = { "sourcekit-lsp" },
+  filetypes = { "swift", "objective-c", "objective-cpp" },
+  root_dir = function() return vim.fn.getcwd() end,
+})
 
 
 -- 2. build-in LSP function
@@ -178,18 +207,16 @@ cmp.setup({
 })
 
 
-
 -- --------------------------------------------
 -- --------------------------------------------
--- flutter-tools
+-- other
 -- --------------------------------------------
 -- --------------------------------------------
 
-
-
-
-
-
-
-
-
+-- Kotlin / Swift用フォーマッタ設定
+require("conform").setup({
+  formatters_by_ft = {
+    kotlin = { "ktlint" },       -- brew install ktlint
+    swift = { "swiftformat" },   -- brew install swiftformat
+  },
+})
