@@ -21,6 +21,7 @@ require("packer").startup(function(use)
     use{'hrsh7th/nvim-cmp'}
     use{'hrsh7th/cmp-nvim-lsp'}
     use{'hrsh7th/vim-vsnip'}
+    use { 'stevearc/conform.nvim' }  -- フォーマッタ対応
 end)
 
 -- プラグインを追加したり更新した時は以下のコマンドをコマンドラインモードで実行する
