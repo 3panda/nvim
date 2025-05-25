@@ -64,6 +64,10 @@ vim.api.nvim_set_keymap('n', '<ESC><ESC>', '<C-u>set nohlsearch!<CR>', { noremap
 -- ノーマルモードでもエンターキーで開業:w
 vim.api.nvim_set_keymap('n', '<CR>', 'o<ESC>', { noremap = true })
 
+-- Tab移動
+vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "次のタブへ" })
+vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>", { desc = "前のタブへ" })
+
 -- --------------------------------------------
 -- fern.vim
 -- --------------------------------------------
