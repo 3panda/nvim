@@ -68,6 +68,12 @@ vim.api.nvim_set_keymap('n', '<CR>', 'o<ESC>', { noremap = true })
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "次のタブへ" })
 vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>", { desc = "前のタブへ" })
 
+-- 分割されたウインドウ間を移動
+vim.keymap.set("n", "<Leader>h", "<C-w>h")
+vim.keymap.set("n", "<Leader>j", "<C-w>j")
+vim.keymap.set("n", "<Leader>k", "<C-w>k")
+vim.keymap.set("n", "<Leader>l", "<C-w>l")
+
 
 -- ===============================
 -- macOSのGUIクライアント用 ⌘V/⌘C マッピング
