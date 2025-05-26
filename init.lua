@@ -87,7 +87,7 @@ opt.smartcase = true
 -- background
 opt.background = 'dark'
 -- Font
-opt.guifont = { 'Andale', 'Mono:h14'}
+opt.guifont = "Menlo:h14"
 -- colorscheme
 ----  colorschemeは好きなものをDLしてcolorsフォルダ以下に配置する
 -- vim.cmd 'colorscheme hybrid'
