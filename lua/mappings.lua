@@ -68,6 +68,16 @@ vim.api.nvim_set_keymap('n', '<CR>', 'o<ESC>', { noremap = true })
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "次のタブへ" })
 vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>", { desc = "前のタブへ" })
 
+
+-- ===============================
+-- macOSのGUIクライアント用 ⌘V/⌘C マッピング
+-- ===============================
+vim.keymap.set('n', '<D-v>', '"+p', { noremap = true, silent = true })
+vim.keymap.set('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
+vim.keymap.set('c', '<D-v>', '<C-r>+', { noremap = true, silent = true })
+vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
+
+
 -- --------------------------------------------
 -- fern.vim
 -- --------------------------------------------
