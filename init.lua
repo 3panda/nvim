@@ -6,7 +6,7 @@
 
 require'plugins'
 require'mappings'
-
+require("settings.neovide")
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic
