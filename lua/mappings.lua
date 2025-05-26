@@ -84,6 +84,11 @@ vim.keymap.set('c', '<D-v>', '<C-r>+', { noremap = true, silent = true })
 vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
 
 
+-- TABキーでタブを移動
+vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { silent = true })
+vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>", { silent = true })
+
+
 -- --------------------------------------------
 -- fern.vim
 -- --------------------------------------------
