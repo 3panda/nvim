@@ -61,7 +61,7 @@ vim.api.nvim_set_keymap('n', '・', '/', { noremap = true })
 -- set ESC+ESC Clear Search hilight
 vim.api.nvim_set_keymap('n', '<ESC><ESC>', '<C-u>set nohlsearch!<CR>', { noremap = true })
 
--- ノーマルモードでもエンターキーで開業:w
+-- ノーマルモードでもエンターキーで開業
 vim.api.nvim_set_keymap('n', '<CR>', 'o<ESC>', { noremap = true })
 
 -- Tab移動
