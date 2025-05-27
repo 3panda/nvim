@@ -105,6 +105,18 @@ vim.cmd([[
 ]])
 
 
+-- --------------------------------------------
+-- telescope.vim
+-- --------------------------------------------
 
+-- ファイル検索
+vim.keymap.set("n", "<Leader>ff", require("telescope.builtin").find_files, { desc = "ファイル検索" })
 
+-- 最近開いたファイル
+vim.keymap.set("n", "<Leader>fo", require("telescope.builtin").oldfiles, { desc = "最近開いたファイル" })
 
+-- バッファ一覧
+vim.keymap.set("n", "<Leader>fb", require("telescope.builtin").buffers, { desc = "バッファ一覧" })
+
+-- 全文検索
+vim.keymap.set("n", "<Leader>fg", require("telescope.builtin").live_grep, { desc = "全文検索 (live grep)" })
