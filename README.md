@@ -35,6 +35,10 @@ Synchronize packages.
 ## Tree viewer
 [fern.vim](https://github.com/lambdalisue/fern.vim)
 
+##  Fuzzy Finder
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+
 ## LSP
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 * [mason.nvim](https://github.com/williamboman/mason.nvim)
