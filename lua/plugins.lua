@@ -24,7 +24,7 @@ require("packer").startup(function(use)
     use { 'stevearc/conform.nvim' }  -- フォーマッタ対応
     use {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.3',
+        tag = '0.1.8',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 end)
