@@ -6,7 +6,6 @@
 
 require'plugins'
 require'mappings'
-require("settings.neovide")
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic
@@ -93,7 +92,9 @@ opt.guifont = "Menlo:h14"
 -- vim.cmd 'colorscheme hybrid'
 -- vim.cmd 'colorscheme monokai'
 
-
+-- 見えないIME候補対策
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#ffffff", bg = "#444444" })
+vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#ffffff", bg = "#444444" })
 
 -- --------------------------------------------
 -- --------------------------------------------
