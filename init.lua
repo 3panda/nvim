@@ -8,8 +8,8 @@ require'plugins'
 require'mappings'
 require'settings.markdown'
 require'settings.gui'
--- require'settings.kotlin'
--- require'settings.swift'
+require'settings.kotlin'
+require'settings.swift'
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic

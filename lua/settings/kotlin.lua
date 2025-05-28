@@ -1,5 +1,6 @@
 
 -- kotlin
+local lspconfig = require('lspconfig') 
 lspconfig.kotlin_language_server.setup({
   cmd = { "kotlin-language-server" },
   filetypes = { "kotlin" },

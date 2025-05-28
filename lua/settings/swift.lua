@@ -1,4 +1,6 @@
+
 -- Swift
+local lspconfig = require('lspconfig') 
 lspconfig.sourcekit.setup({
   cmd = { "sourcekit-lsp" },
   filetypes = { "swift", "objective-c", "objective-cpp" },
