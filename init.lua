@@ -8,6 +8,8 @@ require'plugins'
 require'mappings'
 require'settings.markdown'
 require'settings.gui'
+-- require'settings.kotlin'
+-- require'settings.swift'
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic
@@ -128,23 +130,6 @@ local servers = { "ts_ls", "pyright", "lua_ls" }
    })
  end
 
-
--- kotlin
-lspconfig.kotlin_language_server.setup({
-  cmd = { "kotlin-language-server" },
-  filetypes = { "kotlin" },
-  root_dir = lspconfig.util.root_pattern("settings.gradle.kts", "build.gradle.kts", ".git"),
-  capabilities = capabilities,
-  init_options = vim.empty_dict(),  -- ← [{}] を防ぐ最も確実な手段
-  settings = {},                    -- ← Neovim側の空設定を明示
-})
-
--- Swift
-lspconfig.sourcekit.setup({
-  cmd = { "sourcekit-lsp" },
-  filetypes = { "swift", "objective-c", "objective-cpp" },
-  root_dir = function() return vim.fn.getcwd() end,
-})
 
 
 -- 2. build-in LSP function
