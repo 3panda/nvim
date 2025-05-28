@@ -120,3 +120,13 @@ vim.keymap.set("n", "<Leader>fb", require("telescope.builtin").buffers, { desc =
 
 -- 全文検索
 vim.keymap.set("n", "<Leader>fg", require("telescope.builtin").live_grep, { desc = "全文検索 (live grep)" })
+
+
+-- --------------------------------------------
+-- markdown-preview.nvim
+-- --------------------------------------------
+
+-- <Leader> + mp でブラウザでMarkdownPreview
+vim.keymap.set("n", "<Leader>mp", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+-- <Leader> + ms でブラウザでのMarkdownPreviewをStop
+vim.keymap.set("n", "<Leader>ms", ":MarkdownPreviewStop<CR>", { noremap = true, silent = true })

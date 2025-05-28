@@ -11,8 +11,8 @@
 vim.cmd[[packadd packer.nvim]]
 
 require("packer").startup(function(use)
--- opt オプションを付けると遅延読み込み 
--- opt = true　は使用されるタイミングで読み込まれる
+    -- opt オプションを付けると遅延読み込み 
+    -- opt = true　は使用されるタイミングで読み込まれる
     use{'wbthomason/packer.nvim'}
     use{"lambdalisue/fern.vim"}
     use{'neovim/nvim-lspconfig'}
@@ -21,15 +21,22 @@ require("packer").startup(function(use)
     use{'hrsh7th/nvim-cmp'}
     use{'hrsh7th/cmp-nvim-lsp'}
     use{'hrsh7th/vim-vsnip'}
-    use { 'stevearc/conform.nvim' }  -- フォーマッタ対応
-    use {
+    use{ 'stevearc/conform.nvim' }  -- フォーマッタ対応
+    use{
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" }})
+
 end)
 
 -- プラグインを追加したり更新した時は以下のコマンドをコマンドラインモードで実行する
+--
+--
 -- PackerInstall
 -- PackerSync
 
