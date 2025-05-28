@@ -7,6 +7,7 @@
 require'plugins'
 require'mappings'
 require'settings.markdown'
+require'settings.gui'
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic
