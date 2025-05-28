@@ -6,6 +6,7 @@
 
 require'plugins'
 require'mappings'
+require'settings.markdown'
 -- --------------------------------------------
 -- --------------------------------------------
 -- Basic
