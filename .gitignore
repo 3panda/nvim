@@ -1,0 +1,32 @@
+# Luaのバイトコードなど
+*.luac
+
+# swapファイル
+*.swp
+*.swo
+
+# バックアップファイル
+*~
+*.bak
+
+# undoファイル
+*.un~
+
+# Sessionファイル
+Session.vim
+
+# Packerによって生成されるファイル
+plugin/packer_compiled.lua
+
+# Node関連（markdown-preview.nvim など）
+**/node_modules/
+**/package-lock.json
+**/yarn.lock
+
+# OS固有のファイル
+.DS_Store
+Thumbs.db
+
+# その他ログやキャッシュ
+*.log
+.cache/
